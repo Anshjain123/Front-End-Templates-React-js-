@@ -1,33 +1,8 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +10,126 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-size: 1rem;
+  line-height: 1.7;
+  background-color: #337a95;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.accordion {
+  max-width: 600px;
+  margin: auto;
+  background-color: #18202a;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.75);
+}
+.accordion__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: bold;
+  background-color: #253141;
+  border-bottom: 3px solid #0f141a;
+  letter-spacing: 0.25rem;
+}
+.accordion__item {
+  background-color: #18202a;
+}
+.accordion__item:nth-of-type(even) {
+  background-color: #0f141a;
+}
+.accordion__header {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 20px;
+  cursor: pointer;
+  border-bottom: 2px solid #0f141a;
+  transition: all 0.2s ease;
+}
+.accordion__header-title {
+  color: #fff;
+  font-weight: bold;
+}
+.accordion__header-toggle {
+  transition: transform 0.25s ease 0.1s;
+  position: absolute;
+  right: 20px;
+  width: 10px;
+  height: 10px;
+  transform: rotate(-45deg);
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+}
+.accordion__header:hover {
+  background-color: #000;
+}
+.accordion__header--active {
+  background-color: #000;
+}
+.accordion__header--active .accordion__header-toggle {
+  transform: rotate(45deg);
+}
+.accordion__content {
+  transition: opacity 1s ease 0.25s, height 0.25s ease;
+  background-image: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.8) 75%
+    ),
+    url(http://lorempixel.com/480/480/);
+  background-size: cover;
+  background-color: #18202a;
+  padding: 0 5%;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.accordion__content::-webkit-scrollbar {
+  display: none;
+}
+.accordion__content-title {
+  transition: opacity 0.3s ease 0.3s, transform 0.3s ease 0.3s;
+  transform: scaleY(0);
+  color: #ffe;
+  opacity: 0;
+  margin: 20px 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+.accordion__content-text {
+  transition: opacity 0.3s ease 0.6s, transform 0.3s ease 0.6s;
+  transform: scaleY(0);
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.65);
+  opacity: 0;
+}
+.accordion__content--show {
+  height: 400px;
+  opacity: 1;
+}
+.accordion__content--show .accordion__content-title {
+  opacity: 1;
+  transform: scaleY(1);
+}
+.accordion__content--show .accordion__content-text {
+  opacity: 1;
+  transform: scaleY(1);
 }
